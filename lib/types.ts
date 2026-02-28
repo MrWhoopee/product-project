@@ -35,3 +35,8 @@ export interface Review {
   reviewerEmail: string;
   reviewerName: string;
 }
+
+export interface Promo {
+  code: string;
+  discount: number;
+}

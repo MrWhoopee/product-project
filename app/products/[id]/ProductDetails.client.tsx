@@ -9,10 +9,17 @@ import CalcPrice from "@/components/CalcPrice/CalcPrice";
 import Link from "next/link";
 import css from "./ProductDetails.module.css";
 import Modal from "@/components/Modal/Modal";
+import PromoForm from "@/components/PromoForm/PromoForm";
+import { Promo } from "@/lib/types";
 
 export default function ProductDetails() {
   const [showModal, setShowModal] = useState(false);
+  const [appliedPromo, setAppliedPromo] = useState<Promo | null>(null);
   const { id } = useParams<{ id: string }>();
+  const handleApplyPromo = (promo: Promo) => {
+    setAppliedPromo(promo);
+    setShowModal(false);
+  };
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["product", id],
@@ -36,7 +43,10 @@ export default function ProductDetails() {
       <Link href="/products">Back to Products</Link>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <h2 style={{ color: "black" }}>Apply Promo Code</h2>
+          <PromoForm
+            onApply={handleApplyPromo}
+            appliedCode={appliedPromo?.code}
+          />
         </Modal>
       )}
     </div>
