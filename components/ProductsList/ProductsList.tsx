@@ -1,17 +1,29 @@
 "use client";
-import { getProducts } from "@/lib/api";
+import { getProducts, PER_PAGE } from "@/lib/api";
 import { Product } from "@/lib/types";
 import ProductCard from "../ProductCard/ProductCard";
 import css from "./ProductsList.module.css";
 import { useQuery } from "@tanstack/react-query";
+import Pagination from "../Pagination/Pagination";
 
-export default function ProductsList() {
-  const { data, isLoading, error } = useQuery({
-    queryKey: ["products"],
-    queryFn: getProducts,
+interface Props {
+  currentPage: number;
+}
+
+export default function ProductsList({ currentPage }: Props) {
+  const { data, isLoading, error } = useQuery<{
+    products: Product[];
+    total: number;
+  }>({
+    queryKey: ["products", currentPage],
+    queryFn: () => getProducts(currentPage),
   });
+
   if (isLoading) return <p>Loading...</p>;
   if (error || !data) return <p>Some error..</p>;
+
+  const totalPages = Math.ceil(data?.total / PER_PAGE);
+  //   console.log(totalPages);
   return (
     <section>
       <ul className={css.list}>
@@ -21,6 +33,11 @@ export default function ProductsList() {
           </li>
         ))}
       </ul>
+      {totalPages > 1 && (
+        <div className={css.paginationWrapper}>
+          <Pagination totalPages={totalPages} currentPage={currentPage} />
+        </div>
+      )}
     </section>
   );
 }
