@@ -2,13 +2,16 @@
 
 import { useParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 import { getProductById } from "@/lib/api";
 import Image from "next/image";
 import CalcPrice from "@/components/CalcPrice/CalcPrice";
 import Link from "next/link";
 import css from "./ProductDetails.module.css";
+import Modal from "@/components/Modal/Modal";
 
 export default function ProductDetails() {
+  const [showModal, setShowModal] = useState(false);
   const { id } = useParams<{ id: string }>();
 
   const { data, isLoading, error } = useQuery({
@@ -27,8 +30,15 @@ export default function ProductDetails() {
       <h2>{data.title}</h2>
       <p>{data.description}</p>
       <CalcPrice price={data.price} discount={data.discountPercentage} />
-      <button>Apply Promo Code</button>
+      <button className={css.promoBtn} onClick={() => setShowModal(true)}>
+        Apply Promo Code
+      </button>
       <Link href="/products">Back to Products</Link>
+      {showModal && (
+        <Modal onClose={() => setShowModal(false)}>
+          <h2 style={{ color: "black" }}>Apply Promo Code</h2>
+        </Modal>
+      )}
     </div>
   );
 }
