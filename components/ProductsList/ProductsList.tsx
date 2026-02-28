@@ -5,6 +5,8 @@ import ProductCard from "../ProductCard/ProductCard";
 import css from "./ProductsList.module.css";
 import { useQuery } from "@tanstack/react-query";
 import Pagination from "../Pagination/Pagination";
+import Loader from "../Loader/Loader";
+import Error from "../Error/Error";
 
 interface Props {
   currentPage: number;
@@ -19,8 +21,8 @@ export default function ProductsList({ currentPage }: Props) {
     queryFn: () => getProducts(currentPage),
   });
 
-  if (isLoading) return <p>Loading...</p>;
-  if (error || !data) return <p>Some error..</p>;
+  if (isLoading) return <Loader />;
+  if (error || !data) return <Error />;
 
   const totalPages = Math.ceil(data?.total / PER_PAGE);
   //   console.log(totalPages);

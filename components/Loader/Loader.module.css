@@ -1,0 +1,22 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+.loader {
+  width: 120px;
+  height: 24px;
+  -webkit-mask:
+    radial-gradient(circle closest-side, #000 94%, #0000) 0 0/25% 100%,
+    linear-gradient(#000 0 0) center/calc(100% - 12px) calc(100% - 12px)
+      no-repeat;
+  background: linear-gradient(var(--primary) 0 0) 0/0% no-repeat var(--surface);
+  animation: l7 2s infinite linear;
+}
+@keyframes l7 {
+  100% {
+    background-size: 100%;
+  }
+}

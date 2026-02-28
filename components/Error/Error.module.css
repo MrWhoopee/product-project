@@ -1,0 +1,92 @@
+.errorContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 200px);
+  padding: 2rem;
+  text-align: center;
+}
+
+.content {
+  max-width: 480px;
+  width: 100%;
+}
+
+.icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: var(--fw-bold);
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.message {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+.status {
+  margin-bottom: 2.5rem;
+  font-weight: var(--fw-medium);
+  color: var(--primary);
+  background-color: var(--bg-highlight);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-full);
+  display: inline-block;
+}
+
+.countdown {
+  font-variant-numeric: tabular-nums;
+  font-weight: var(--fw-bold);
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.buttonPrimary {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--primary);
+  color: white;
+  border-radius: var(--radius-md);
+  font-weight: var(--fw-semibold);
+  transition: var(--transition);
+}
+
+.buttonPrimary:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+.buttonSecondary {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-weight: var(--fw-semibold);
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.buttonSecondary:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+@media (max-width: 640px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+}

@@ -80,3 +80,9 @@
     display: none;
   }
 }
+
+@media (min-width: 769px) {
+  .actions {
+    display: none;
+  }
+}

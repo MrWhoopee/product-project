@@ -12,6 +12,9 @@ import Modal from "@/components/Modal/Modal";
 import PromoForm from "@/components/PromoForm/PromoForm";
 import { Promo } from "@/lib/types";
 
+import Loader from "@/components/Loader/Loader";
+import Error from "@/components/Error/Error";
+
 export default function ProductDetails() {
   const [showModal, setShowModal] = useState(false);
   const [appliedPromo, setAppliedPromo] = useState<Promo | null>(null);
@@ -31,8 +34,8 @@ export default function ProductDetails() {
     ? data.discountPercentage + appliedPromo.discount
     : data.discountPercentage;
 
-  if (isLoading) return <p>Loading...</p>;
-  if (error || !data) return <p>Some error..</p>;
+  if (isLoading) return <Loader />;
+  if (error || !data) return <Error />;
 
   return (
     <article className={css.container}>
