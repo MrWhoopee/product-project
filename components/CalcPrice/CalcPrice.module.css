@@ -1,0 +1,13 @@
+.oldPrice {
+  position: relative;
+}
+
+.oldPrice::after {
+  content: "";
+  border: 1px solid #bd3131;
+  position: absolute;
+  top: 50%;
+  rotate: 169deg;
+  left: 0;
+  width: 100%;
+}
