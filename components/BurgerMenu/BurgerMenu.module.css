@@ -1,0 +1,52 @@
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.burger:hover {
+  background-color: var(--bg-muted);
+}
+
+.line {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: var(--text-primary);
+  border-radius: 2px;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+  transform-origin: center;
+}
+
+/* Animate to X when open */
+.open .line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.open .line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.open .line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Show only on mobile */
+@media (max-width: 768px) {
+  .burger {
+    display: flex;
+  }
+}

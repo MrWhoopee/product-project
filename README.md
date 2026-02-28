@@ -1,5 +1,8 @@
 # Udata Shop
 
+<p align="center">
+  <img src="./public/main.png" alt="main" width="400" />
+</p>
 **Udata Shop** is a modern e-commerce platform built with React and Next.js. The project demonstrates a product list with pagination, a detailed product page, a promo code system, and dark/light theme support.
 
 ## 🚀 Tech Stack
@@ -36,7 +39,7 @@
 
 ## 🎁 Available Promo Codes
 
-The project includes a discount system. You can use the following promo codes at checkout or in the cart:
+The project includes a discount system. You can use the following promo codes at checkout:
 
 | Promo Code       | Discount |
 | :--------------- | :------- |
@@ -46,5 +49,11 @@ The project includes a discount system. You can use the following promo codes at
 | **UDATATHEBEST** | 80%      |
 
 ---
+
+PageSpeed test results:
+
+<p align="center">
+  <img src="./public/pagespeed.png" alt="pagespeed" width="400" />
+</p>
 
 This project was created as a test assignment to demonstrate Next.js development skills.

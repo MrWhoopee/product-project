@@ -6,7 +6,7 @@
   top: 0;
   z-index: 50;
   width: 100%;
-  padding: 20px;
+  /* padding: 20px; */
 }
 
 .nav {
@@ -45,8 +45,38 @@
   font-weight: bold;
 }
 
+.desktopNav {
+  display: flex;
+}
+
 @media (max-width: 768px) {
   .desktopNav {
+    display: none;
+  }
+}
+
+.mobileNav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition:
+    max-height 0.3s ease,
+    padding 0.3s ease;
+  border-top: 1px solid transparent;
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+.mobileNavOpen {
+  max-height: 400px;
+  padding: 0;
+  border-top-color: var(--border);
+
+  @media (min-width: 769px) {
     display: none;
   }
 }
