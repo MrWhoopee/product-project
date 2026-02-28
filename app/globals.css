@@ -1,7 +1,84 @@
+:root {
+  /* Base Colors */
+  --background: #f9fafb;
+  --foreground: #1f2937;
+  --surface: #ffffff;
+
+  /* Text Colors */
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --text-inverse: #ffffff;
+
+  /* Brand/Action Colors */
+  --primary: #10b981;
+  --primary-hover: #059669;
+
+  /* UI Elements */
+  --border: #f3f4f6;
+  --border-strong: #e5e7eb;
+  --border-input: #d1d5db;
+
+  /* Section Backgrounds */
+  --bg-muted: #f9fafb;
+  --bg-highlight: #f0fdf4;
+  --border-highlight: #dcfce7;
+
+  /* Button Secondary */
+  --btn-secondary: #f3f4f6;
+  --btn-secondary-hover: #e5e7eb;
+  --btn-secondary-text: #374151;
+  --btn-secondary-text-hover: #111827;
+
+  /* Modals */
+  --backdrop: rgba(33, 37, 41, 0.6);
+
+  /* Shadows */
+  --shadow-sm: 0 4px 12px rgba(16, 185, 129, 0.2);
+  --shadow-sm-hover: 0 6px 16px rgba(16, 185, 129, 0.3);
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --shadow-card-hover: 0 12px 28px rgba(0, 0, 0, 0.08);
+  --shadow-container: 0 8px 30px rgba(0, 0, 0, 0.04);
+  --shadow-modal: 0 10px 40px rgba(0, 0, 0, 0.08);
+  --shadow-focus: 0 0 0 3px rgba(16, 185, 129, 0.2);
+
+  /* Font Sizes */
+  --fs-xs: 0.875rem; /* 14px */
+  --fs-sm: 0.95rem; /* 15px */
+  --fs-base: 1rem; /* 16px */
+  --fs-md: 1.125rem; /* 18px */
+  --fs-lg: 1.5rem; /* 24px */
+  --fs-xl: 1.75rem; /* 28px */
+  --fs-2xl: 2.5rem; /* 40px */
+
+  /* Font Weights */
+  --fw-regular: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-black: 800;
+
+  /* Line Heights */
+  --lh-tight: 1.2;
+  --lh-normal: 1.4;
+  --lh-relaxed: 1.5;
+  --lh-loose: 1.7;
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-full: 999px;
+
+  /* Transitions */
+  --transition: all 0.2s ease;
+  --transition-slow: all 0.3s ease;
+}
+
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
 }
 
 body {
@@ -27,4 +104,10 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 20px;
 }
