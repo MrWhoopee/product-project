@@ -1,6 +1,7 @@
 import { PROMO_CODES } from "@/lib/promo";
 import { Promo } from "@/lib/types";
 import { toast } from "react-hot-toast";
+import css from "./PromoForm.module.css";
 
 interface Props {
   onApply: (promo: Promo) => void;
@@ -31,21 +32,24 @@ export default function PromoForm({ onApply, appliedCode }: Props) {
     }
   };
   return (
-    <div>
-      <h2>Discount Code</h2>
-      <form action={handleAction}>
-        <div>
+    <div className={css.container}>
+      <h2 className={css.title}>Discount Code</h2>
+      <form action={handleAction} className={css.form}>
+        <div className={css.inputWrapper}>
           <input
             type="text"
             name="promoCode"
             placeholder="Enter Promo Code"
+            className={css.input}
             autoFocus
           />
         </div>
-        <button type="submit">Apply Promo Code</button>
+        <button type="submit" className={css.button}>
+          Apply Promo Code
+        </button>
       </form>
       {appliedCode && (
-        <p>
+        <p className={css.appliedText}>
           Currently applied: <strong>{appliedCode}</strong>
         </p>
       )}
