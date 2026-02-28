@@ -27,6 +27,10 @@ export default function ProductDetails() {
     refetchOnMount: false,
   });
 
+  const totalDiscount = appliedPromo
+    ? data.discountPercentage + appliedPromo.discount
+    : data.discountPercentage;
+
   if (isLoading) return <p>Loading...</p>;
   if (error || !data) return <p>Some error..</p>;
 
@@ -36,9 +40,9 @@ export default function ProductDetails() {
       <Image src={data.thumbnail} alt={data.title} width={200} height={200} />
       <h2>{data.title}</h2>
       <p>{data.description}</p>
-      <CalcPrice price={data.price} discount={data.discountPercentage} />
+      <CalcPrice price={data.price} discount={totalDiscount} />
       <button className={css.promoBtn} onClick={() => setShowModal(true)}>
-        Apply Promo Code
+        {appliedPromo ? "Change Promo Code" : "Apply Promo Code"}
       </button>
       <Link href="/products">Back to Products</Link>
       {showModal && (
